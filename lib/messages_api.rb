@@ -200,5 +200,58 @@ def self.get_raw_messages (sdid,offset,count,start_date= 0,end_date= 0,order= "a
 
   end
 
+def self.export_normalized_messages (sdid,start_date= 0,end_date= 0,order= "asc",format= "json",opts={})
+    query_param_keys = [:sdid,:start_date,:end_date,:order,:format]
+
+    # set default values and merge with input
+    options = {
+    :sdid => sdid,
+      :start_date => start_date,
+      :end_date => end_date,
+      :order => order,
+      :format => format}.merge(opts)
+
+    #resource path
+    path = "/messages/export".sub('{format}','json')
+
+    
+    # pull querystring keys from options
+    queryopts = options.select do |key,value|
+      query_param_keys.include? key
+    end
+    
+    headers = nil
+    post_body = nil
+    response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+    ExportEnvelope.new(response)
+
+  end
+
+def self.check_export_status (export_id,opts={})
+    query_param_keys = []
+
+    # verify existence of params
+    raise "export_id is required" if export_id.nil?
+    # set default values and merge with input
+    options = {
+    :export_id => export_id}.merge(opts)
+
+    #resource path
+    path = "/messages/export/{exportId}/status".sub('{format}','json').sub('{' + 'exportId' + '}', escapeString(export_id))
+    
+
+    
+    # pull querystring keys from options
+    queryopts = options.select do |key,value|
+      query_param_keys.include? key
+    end
+    
+    headers = nil
+    post_body = nil
+    response = Swagger::Request.new(:GET, path, {:params=>queryopts,:headers=>headers, :body=>post_body }).make.body
+    ExportStatusEnvelope.new(response)
+
+  end
+
 end
 
