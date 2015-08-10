@@ -13,6 +13,11 @@ Installation
 
 Once you have installed the required libraries add the scripts to your project.
 
+Usage
+------
+
+The easiest way to start using the SAMI Ruby SDK is to look at our demo application at [https://github.com/samsungsamiio/sami-ruby-demo.](https://github.com/samsungsamiio/sami-ruby-demo)
+
 More about SAMI
 ---------------
 
@@ -20,13 +25,13 @@ If you are not familiar with SAMI we have extensive documentation at http://deve
 
 The full SAMI API specification with examples can be found at http://developer.samsungsami.io/sami/api-spec.html
 
-We blog about advanced sample applications at http://blog.samsungsami.io/
-
 To create and manage your services and devices on SAMI visit developer portal at http://devportal.samsungsami.io
+
+To see advanced ways to use SAMI in practice, visit [Samples.](https://developer.samsungsami.io/sami/samples/)
 
 License and Copyright
 ---------------------
 
-Licensed under the Apache License. See LICENSE.
+Licensed under the Apache License. See [LICENCE.](https://github.com/samsungsamiio/sami-ruby/blob/master/LICENSE)
 
 Copyright (c) 2015 Samsung Electronics Co., Ltd.
