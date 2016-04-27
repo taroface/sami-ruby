@@ -1,3 +1,5 @@
+**Note that this SDK is no longer current. The latest SDK can be found [here](https://github.com/artikcloud/artikcloud-ruby).**
+
 SAMI Ruby SDK
 ================
 
